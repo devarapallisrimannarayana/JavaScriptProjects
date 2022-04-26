@@ -1,0 +1,2 @@
+# JavaScriptProjects
+Basic JavaScript projects
