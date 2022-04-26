@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebPage Background Change</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            padding: 15px 35px;
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 15px;
+            margin-left: 20px;
+        }
+
+        button:hover {
+            border: 2px solid black;
+            background-color: transparent;
+            color: black;
+            transform: scale(1.1);
+            border-radius: 15px;
+            transition: 2s;
+        }
+
+        #color {
+            margin: 15px auto;
+            width: 200px;
+            color: white;
+            border: 2px solid black;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 15px 30px;
+            text-align: left;
+
+        }
+
+        div {
+            margin: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid black;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        input {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .container {
+            margin: 10px;
+            text-align: center;
+            border: none;
+        }
+        .box{
+            display: flex;
+            border: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .random{
+            width: 400px;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="container">
+        <p id="color">color : </p>
+        <div class="random">
+            <h2>Random Colors</h2>
+            <button id="bgcolor" onclick="changeColor()">Change Bg Color</button>
+        </div>
+        <div class="box">
+            <div>
+                <h2>HexCode Colors</h2>
+                <h3>Ex:#00ffbb</h3>
+                <p>Enter Value for R: <input type="text" id="r" placeholder="Enter (00-FF)"></p>
+                <p>Enter Value for G: <input type="text" id="g" placeholder="Enter (00-FF)"></p>
+                <p>Enter Value for B: <input type="text" id="b" placeholder="Enter (00-FF)"></p>
+                <button id="bgcolor" onclick="changeColor1()">Change Bg Color</button>
+            </div>
+            <div>
+                <h2>RGB Colors</h2>
+                <h3>Ex:rgb(0 125 200)</h3>
+                <p>Enter Value for R: <input type="text" id="R" placeholder="enter (0-255)"></p>
+                <p>Enter Value for G: <input type="text" id="G" placeholder="enter (0-255)"></p>
+                <p>Enter Value for B: <input type="text" id="B" placeholder="enter (0-255)"></p>
+                <button id="bgcolor" onclick="changeColor2()">Change Bg Color</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var changeColor = () => {
+            var colors = ["red", "yellow", "green", "pink", "orange", "blue", "tamato"];
+            var random = Math.floor(Math.random() * 6);
+            console.log(random);
+            document.querySelector("#body").style.backgroundColor = colors[random];
+            document.querySelector("#body").style.transition = "0.7s";
+            document.querySelector("#color").innerText = "color : " + colors[random];
+        }
+
+        //hex color
+        var changeColor1 = () => {
+            var R = document.querySelector("#r").value.toUpperCase();
+            console.log(R);
+            var G = document.querySelector("#g").value.toUpperCase();
+            var B = document.querySelector("#b").value.toUpperCase();
+            var hexcolor = `#${R}${G}${B}`
+            console.log(hexcolor);
+            document.querySelector("#body").style.backgroundColor = hexcolor;
+            document.querySelector("#body").style.transition = "0.7s";
+            document.querySelector("#color").innerText = "color : " + hexcolor;
+        }
+        //Rgb colors
+        var changeColor2 = () => {
+            var r = document.querySelector("#R").value;
+            var g = document.querySelector("#G").value;
+            var b = document.querySelector("#B").value;
+            var rgbColor = `rgb(${r} ${g} ${b})`
+            console.log(rgbColor);
+            document.querySelector("#body").style.backgroundColor = rgbColor;
+            document.querySelector("#body").style.transition = "0.7s";
+            document.querySelector("#color").innerText = "color : " + rgbColor;
+        }   
+    </script>
+</body>
+
+</html>
