@@ -1,0 +1,69 @@
+/* hide text */
+
+.question_text {
+    display: none;
+}
+
+.line {
+    display: none;
+}
+
+.show_text .question_text {
+    display: block;
+}
+
+.show_text .line {
+    display: block;
+}
+
+.minus_icon {
+    display: none;
+}
+
+.show_text .minus_icon {
+    display: block;
+}
+
+.show_text .plus_icon {
+    display: none;
+}
+
+
+
+// get all buttons to add event listners
+
+const btns = document.querySelectorAll('.question_btn');
+const questions = document.querySelectorAll('.question');
+
+// for all buttons get to the parent tag and again parent 
+// tag to accesses question class
+
+btns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+        const question = e.currentTarget.parentElement.parentElement
+        // we accessed from button to parent
+        question.classList.toggle("show_text");
+
+        // this is... to close already opened question.. when we click on the other
+        questions.forEach(function (item) {
+            // we have currently 3 items for one which we are accessing right now
+            // apart from that remaining items must collapse
+            // so which items are not equal to the current question we remove show_text class
+            if (item != question) {
+                item.classList.remove('show_text');
+            }
+        });
+    });
+});
+
+
+const questions = document.querySelectorAll('.question');
+
+questions.forEach(function (question) {
+    const btn = question.querySelectorAll('.question_btn');
+    btn.forEach(function (e) {
+        e.addEventListener('click', function () {
+            question.classList.toggle("show_text");
+        });
+    });
+});
