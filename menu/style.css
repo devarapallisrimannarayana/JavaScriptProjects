@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    font-family: 'Poppins';
+    color: white;
+}
+
+.menu {
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 28px;
+    position: relative;
+    display: inline-block;
+}
+
+.title::after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: white;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+button {
+    border: 2px solid white;
+    padding: 10px 20px;
+    background: transparent;
+    color: white;
+    border-radius: 2px;
+    margin: 30px 10px;
+    text-transform: capitalize;
+}
+
+button:hover {
+    background: white;
+    color: black;
+    transition: 0.3s;
+}
+
+
+
+.menu_section {
+    width: 70vw;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    flex-basis: 420px;
+    margin: 30px 2vw;
+}
+
+.item_image {
+    margin-right: 20px;
+}
+
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    opacity: 0.4;
+    margin: 10px 0;
+}
+
+.item_info_head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dish,
+.price {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+.description {
+    font-size: 12px;
+    line-height: 176.69%;
+    color: #BEBEBE;
+}
